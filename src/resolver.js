@@ -32,6 +32,27 @@ export const resolvers = {
     },
     deleteProduct: (parent, {name}) => {
       return Product.deleteOne({name})
-    }
-  },
+    },
+    updateProduct: async(root, args) =>{
+      const UpdatedProduct = await Product.findByIdAndUpdate(args.id,args);
+      /* if (!UpdatedProduct) {
+        throw new Error('Error')
+      } */
+      return UpdatedProduct;
+  }
+
+
+
+    /* updateProduct: async (_, {name, input:{description, color, brand}}) => {
+        await Product.update(
+          {
+          name: name
+        },
+        {
+          description, color, brand
+        });
+
+        return true;
+      } */
+  }
 }

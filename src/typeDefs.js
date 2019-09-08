@@ -30,10 +30,17 @@
             images: [ImageInput!]
             ): Product!
         deleteProduct(name: String!): Product
+        updateProduct(
+            id: ID!
+            name: String 
+            description: String 
+            brand: String 
+            color: String 
+        ): Product!
     }
 
     type Product{ 
-    productID: ID!
+    id: ID!
     producerID: String!
     name: String!
     createdAt: DateTime! 
@@ -49,7 +56,7 @@
     color: String!
     packaging: [Packaging!]
     condition:[Condition!]
-    images: [Image!]
+    images: [Image!]!
     }
 
 

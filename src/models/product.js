@@ -21,9 +21,6 @@ const offerType_Schema = new mongoose.Schema({
 
 
 const prod_schema = new mongoose.Schema({
-      productID: {
-        type: String
-      },
       name: {
         type: String, 
         unique: true
