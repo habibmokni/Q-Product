@@ -1,0 +1,2 @@
+include:
+  - 'https://gitlab.com/project-q/development/raw/master/gitlab-ci-templates/docker.yml'
