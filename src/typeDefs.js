@@ -3,7 +3,7 @@
     export const typeDefs = gql`
     type Query{
         getAllProducts: [Product!]!
-        getProductById(id: ID!): Product
+        getProductById(_id: ID!): Product
         getProductsByProducer(producerID: String!): [Product!]!
         getProductsBycolor(color: String!): [Product!]!
         getProductsBycategory(category: String!): [Product!]
@@ -29,23 +29,17 @@
             condition:[Condition!]
             images: [ImageInput!]
             ): Product!
-        deleteProduct(name: String!): Product
-        updateProduct(
-            id: ID!
-            name: String 
-            description: String 
-            brand: String 
-            color: String 
-        ): Product!
+        deleteProduct(name: String!):Product
+        updateProduct(_id: ID!, input: ProductInput):Product
     }
 
     type Product{ 
-    id: ID!
+    _id: ID!
     producerID: String!
     name: String!
     createdAt: DateTime! 
     description: String!
-    longDescription: String!
+    longDescription: String
     offerTypes:[OfferType!]!
     brand: String 
     rating: Float
@@ -53,10 +47,19 @@
     allergen:[Allergen!] 
     additive: [Additive!]
     foodSafety: [FoodSafety!]
-    color: String!
+    color: String
     packaging: [Packaging!]
     condition:[Condition!]
     images: [Image!]!
+    }
+
+    input ProductInput{ 
+    name: String!
+    description: String!
+    longDescription: String
+    brand: String
+    category: Category!
+    color: String
     }
 
 

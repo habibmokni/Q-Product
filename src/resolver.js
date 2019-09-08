@@ -4,8 +4,8 @@ import { offerType } from './models/offerType.js';
 export const resolvers = {
   Query: {
     getAllProducts: () => Product.find(),
-    getProductById: (parent, { id }) => {
-       return Product.findById(id);
+    getProductById: (parent, { _id }) => {
+       return Product.findById(_id);
      },
     getProductsByProducer: (parent, { producerID }) => {
       return Product.find({producerID});
@@ -33,17 +33,14 @@ export const resolvers = {
     deleteProduct: (parent, {name}) => {
       return Product.deleteOne({name})
     },
-    updateProduct: async(root, args) =>{
-      const UpdatedProduct = await Product.findByIdAndUpdate(args.id,args);
-      /* if (!UpdatedProduct) {
-        throw new Error('Error')
-      } */
-      return UpdatedProduct;
+    async updateProduct(_, {_id, input}) {
+      return await Product.findOneAndUpdate({_id}, input, { new: true });
+    }
+
   }
+};
 
-
-
-    /* updateProduct: async (_, {name, input:{description, color, brand}}) => {
+/* updateProduct: async (_, {name, input:{description, color, brand}}) => {
         await Product.update(
           {
           name: name
@@ -54,5 +51,3 @@ export const resolvers = {
 
         return true;
       } */
-  }
-}
