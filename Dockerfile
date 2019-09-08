@@ -1,6 +1,6 @@
 FROM node:10-alpine
 
-WORKDIR /usr/src/graphql/
+WORKDIR /usr/src/
 COPY package*.json ./
 RUN npm install
 
