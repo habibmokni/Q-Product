@@ -1,0 +1,56 @@
+query getAllProducts {
+  getAllProducts {
+    id
+    name
+    description
+  }
+}
+
+query getProductById{
+  getProductById( id: "kdf"){
+    id
+    name
+    description
+  }
+}
+
+query getProductsByProducer{
+  getProductsByProducer(ProducerID:"1234"){
+    id
+    ProducerID
+    name
+    description
+    longDescription
+  }
+}
+
+mutation AddNewProduct {
+  createProduct(
+    offerTypes:{price:1,amount:2,tax:3,discount:4,unit:GRAM}
+    createdAt:"Lundiinweldih"
+    producerID: "004"
+    name: "TestFinal"
+    description: "Hey"
+    longDescription: "HEEEEEYYY"
+    brand: "Mokni's"
+    category: CEREAL
+    allergen: [GLUTEN, FISH, MILK]
+    additive: [DYE, PHOSPHATE]
+    foodSafety: ALCOHOL
+    color: "Red"
+    packaging: PAPER
+    condition: DRIED
+    images:"Img")
+  {
+  name
+  description
+  category
+  longDescription
+  }
+}
+
+
+
+mutation deleteProduct(
+
+)
