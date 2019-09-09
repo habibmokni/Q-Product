@@ -17,7 +17,6 @@
             name: String! 
             description: String!
             longDescription: String!
-            createdAt: DateTime!
             offerTypes:[OfferTypeInput!]!
             brand: String!
             category: Category! 
@@ -91,7 +90,7 @@
         tax: Float! 
         discount: Float! 
     } 
-
+    
     scalar DateTime
 
     enum Unit{

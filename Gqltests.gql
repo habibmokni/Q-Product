@@ -1,14 +1,14 @@
 query getAllProducts {
   getAllProducts {
-    id
+    _id
     name
     description
   }
 }
 
 query getProductById{
-  getProductById( id: "kdf"){
-    id
+  getProductById( _id: "kdf"){
+    _id
     name
     description
   }

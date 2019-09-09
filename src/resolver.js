@@ -24,16 +24,14 @@ export const resolvers = {
 
   },
   Mutation: {
-    createProduct: async (_, { producerID, name, images, description, longDescription, color, brand, createdAt, rating, category, allergen, additive, foodSafety, packaging, condition, offerTypes }) => {
-      const newProd = new Product({ producerID, name, images, description, longDescription, color, brand, createdAt, rating, category, allergen, additive, foodSafety, packaging, condition, offerTypes })
+    createProduct: async (_, { producerID, name, images, description, longDescription, color, brand, rating, category, allergen, additive, foodSafety, packaging, condition, offerTypes }) => {
+      const newProd = new Product({ producerID, name, images, description, longDescription, color, brand, rating, category, allergen, additive, foodSafety, packaging, condition, offerTypes })
       await newProd.save();
       return newProd;
     },
     deleteProduct: (parent, {name}) => {
       return Product.deleteOne({name})
     },
-
-
     async updateProduct(_, {_id, input}) {
       return await Product.findOneAndUpdate({_id}, input, { new: true });
     }

@@ -1,25 +1,28 @@
-import mongoose from 'mongoose';
+var mongoose = require('mongoose')
+require('mongoose-double')(mongoose);
 
+var SchemaTypes = mongoose.Schema.Types;
+const Schema = mongoose.Schema;
 
-const offerTypes_Schema = new mongoose.Schema({
+const offerTypes_Schema = new Schema({
   price: {
-    type: String
+    type: SchemaTypes.Double
   },
   ammount: {
-    type: String
+    type: SchemaTypes.Double
   },
   unit: {
     type: String
   },
   tax: {
-    type: String
+    type: SchemaTypes.Double
   },
   discount: {
-    type: String
+    type: SchemaTypes.Double
   }
 });
 
-const imagesType_Schema = new mongoose.Schema({
+const imagesType_Schema = new Schema({
   name: {
     type: String
   },
@@ -29,13 +32,14 @@ const imagesType_Schema = new mongoose.Schema({
 });
 
 
-const prod_schema = new mongoose.Schema({
+const prod_schema = new Schema({
   name: {
     type: String,
     unique: true
   },
   createdAt: {
-    type: String
+    type: Date,
+    default: Date.now
   },
   producerID: {
     type: String
@@ -53,7 +57,7 @@ const prod_schema = new mongoose.Schema({
     type: [imagesType_Schema]
   },
   rating: {
-    type: String
+    type: SchemaTypes.Double
   },
   brand: {
     type: String
