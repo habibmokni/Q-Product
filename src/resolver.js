@@ -1,5 +1,4 @@
 import { Product } from './models/product.js';
-import { offerType } from './models/offerType.js';
 
 export const resolvers = {
   Query: {
@@ -10,23 +9,23 @@ export const resolvers = {
     getProductsByProducer: (parent, { producerID }) => {
       return Product.find({producerID});
     },
-    getProductsBycolor: (parent, { color }) => {
+    getProductsByColor: (parent, { color }) => {
       return Product.find({color});
     },
-    getProductsBycategory: (parent, { category }) => {
+    getProductsByCategory: (parent, { category }) => {
       return Product.find({category});
     },
-    getProductsBybrand: (parent, { brand }) => {
+    getProductsByBrand: (parent, { brand }) => {
       return Product.find({brand});
     },
-    getProductsByname: (parent, { name }) => {
+    getProductsByName: (parent, { name }) => {
       return Product.find({name});
     },
 
   },
   Mutation: {
-    createProduct: async (_, { producerID, name, image, description, longDescription, color, brand, createdAt, rating, category, allergen, additive, foodSafety, packaging, condition, offerTypes }) => {
-      const newProd = new Product({ producerID, name, image, description, longDescription, color, brand, createdAt, rating, category, allergen, additive, foodSafety, packaging, condition, offerTypes })
+    createProduct: async (_, { producerID, name, images, description, longDescription, color, brand, createdAt, rating, category, allergen, additive, foodSafety, packaging, condition, offerTypes }) => {
+      const newProd = new Product({ producerID, name, images, description, longDescription, color, brand, createdAt, rating, category, allergen, additive, foodSafety, packaging, condition, offerTypes })
       await newProd.save();
       return newProd;
     },

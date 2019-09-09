@@ -5,10 +5,10 @@
         getAllProducts: [Product!]!
         getProductById(_id: ID!): Product
         getProductsByProducer(producerID: String!): [Product!]!
-        getProductsBycolor(color: String!): [Product!]!
-        getProductsBycategory(category: String!): [Product!]
-        getProductsBybrand(brand: String!): [Product!]
-        getProductsByname(name: String!): [Product!]
+        getProductsByColor(color: String!): [Product!]!
+        getProductsByCategory(category: String!): [Product!]
+        getProductsByBrand(brand: String!): [Product!]
+        getProductsByName(name: String!): [Product!]
     }
 
     type Mutation{
@@ -27,7 +27,7 @@
             color: String!
             packaging: [Packaging!]
             condition:[Condition!]
-            image: [ImageInput!]
+            images: [ImageInput!]
         ): Product!
         deleteProduct(name: String!):Product
         updateProduct(_id: ID!, input: ProductInput):Product
@@ -50,7 +50,7 @@
     color: String
     packaging: [Packaging!]
     condition:[Condition!]
-    image: [Image!]!
+    images: [Image!]!
     }
 
     input ProductInput{ 
