@@ -27,8 +27,8 @@
             color: String!
             packaging: [Packaging!]
             condition:[Condition!]
-            images: [ImageInput!]
-            ): Product!
+            image: [ImageInput!]
+        ): Product!
         deleteProduct(name: String!):Product
         updateProduct(_id: ID!, input: ProductInput):Product
     }
@@ -50,7 +50,7 @@
     color: String
     packaging: [Packaging!]
     condition:[Condition!]
-    images: [Image!]!
+    image: [Image!]!
     }
 
     input ProductInput{ 
