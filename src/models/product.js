@@ -50,9 +50,12 @@ const prod_schema = new mongoose.Schema({
         type: String
       },
       offerType:{
-        /*type: [offerType_Schema],
-        default: [],*/
-        type: String
+        /* price: Number,
+        ammount: Number,
+        unit: String,
+        tax: Number,
+        discount: Number */ 
+        type : offerType_Schema
       },
       category : {
         type : String 

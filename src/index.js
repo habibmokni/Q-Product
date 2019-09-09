@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 import { ApolloServer, PubSub } from 'apollo-server';
 import { buildFederatedSchema } from '@apollo/federation';
 import { resolvers } from './resolver';
-import { typeDefs } from './typeDefs';
+import { typeDefs } from './schemas';
 import config from 'config';
 
 
