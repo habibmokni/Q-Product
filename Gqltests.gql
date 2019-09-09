@@ -26,31 +26,54 @@ query getProductsByProducer{
 
 mutation AddNewProduct {
   createProduct(
-    offerTypes:{price:1,amount:2,tax:3,discount:4,unit:GRAM}
-    createdAt:"Lundiinweldih"
-    producerID: "004"
-    name: "TestFinal"
-    description: "Hey"
-    longDescription: "HEEEEEYYY"
-    brand: "Mokni's"
-    category: CEREAL
+    offerTypes: [{ price: 1, amount: 2, tax: 3, discount: 4, unit: MILILITER }]
+    producerID: "2"
+    name: "Produkt50"
+    description: "description"
+    longDescription: "longDescription"
+    brand: "Bergish Pur"
+    category: FISH
     allergen: [GLUTEN, FISH, MILK]
     additive: [DYE, PHOSPHATE]
     foodSafety: ALCOHOL
     color: "Red"
     packaging: PAPER
     condition: DRIED
-    images:"Img")
-  {
-  name
-  description
-  category
-  longDescription
+    createdAt: "2019-09-08T10:29:07.817Z"
+    image: {name:"aveyro", resolutions:"ave"}
+  ) {
+    name
+    description
+    category
+    longDescription
+    createdAt
+    brand
+    color
+    _id
+    offerTypes{price}
   }
 }
 
 
+mutation deleteTest{
+  deleteProduct( name: "Produkt40")
+  {brand}
+}
 
-mutation deleteProduct(
 
-)
+mutation Update {
+  updateProduct(
+    _id: "5d74d8bb2b6a1009e4a07b63"
+    input: {
+      name: "New Name1"
+      description: "neww Desc"
+      category: CEREAL_PRODUCTS
+      brand: "abcdef"
+      color: "Blau"
+      longDescription: "A very Long Description"
+    }
+  ) {
+    _id
+    name
+  }
+}

@@ -2,7 +2,7 @@
   "name": "products",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "index.js",
   "dependencies": {
     "@apollo/federation": "^0.9.4",
     "apollo-server": "^2.7.1",

@@ -27,7 +27,7 @@ const server = new ApolloServer({
   },
 })
 
-
+mongoose.set('useCreateIndex', true)
 mongoose.connect( mongourl, {useNewUrlParser: true}, function (err){
   if(err) {
     console.log('unable to connect to database.');
