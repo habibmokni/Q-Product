@@ -49,24 +49,9 @@ const prod_schema = new mongoose.Schema({
       brand: {
         type: String
       },
-      offerType:[{
-        price: {
-          type: String
-        },
-        ammount: {
-          type: String
-        },
-        unit: {
-          type: String
-        },
-        tax: {
-          type: String
-        },
-        discount: {
-          type: String
-        }
-        //type : offerType_Schema
-      }],
+      offerType:{
+        type: offerType_Schema
+      },
       category : {
         type : String 
       },
